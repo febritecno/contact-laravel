@@ -73,5 +73,13 @@
             {{ $contact->note }}
         </div>
     </div>
+     <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Groups:</strong>
+            <span class="label label-success">
+            {{ $data->group_name }}
+            </span>
+        </div>
+    </div>
 </div>
 @endsection

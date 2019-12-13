@@ -22,6 +22,6 @@ class Groups extends Model
 
     public function contact()
     {
-       return $this->hasMany('App\Contact');
+        return $this->belongsTo('App\Contact', 'groups_id');
     }
 }

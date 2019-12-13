@@ -83,10 +83,10 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Contact $contact,Request $res)
     {
-        $data_groups= Groups::all();
-        return view('contact.show', compact('contact','data_groups'));
+        $data= Groups::find($res->segment(2));
+        return view('contact.show', compact('contact','data'));
     }
 
     /**
