@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Groups;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -83,9 +84,9 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact,Request $res)
+    public function show(Contact $contact,Request $request)
     {
-        $data= Groups::find($res->segment(2));
+        $data= Groups::find($request->segment(2));
         return view('contact.show', compact('contact','data'));
     }
 
@@ -153,9 +154,17 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Contact $contact, Request $request)
     {
+    
+        $imageName=$contact->find($request->segment(2))->avatar;
+
+        $file_path = public_path().'/uploads/'.$imageName;
+
+        unlink($file_path);
+
         $contact->delete();
+
 
         return redirect()->route('contact.index')
             ->with('success', 'Contact deleted successfully');
