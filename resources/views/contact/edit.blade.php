@@ -23,7 +23,7 @@
 </div>
 @endif
 
-<form action="{{ route('contact.update',$contact->id) }}" method="POST">
+<form action="{{ route('contact.update',$contact->id) }}" enctype="multipart/form-data" method="POST">
     @csrf
     @method('PUT')
 
@@ -31,7 +31,7 @@
        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Avatar</strong>
-                <input type="file" name="avatar" value="{{ $contact->avatar }}" class="form-control" placeholder="upload">
+                <input type="file" name="avatar" class="form-control" placeholder="upload">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
