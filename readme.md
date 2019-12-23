@@ -12,18 +12,10 @@
 2. composer install
 3. mv .env.example .env
 4. setting database .env
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=contacts
-DB_USERNAME=root
-DB_PASSWORD=
-
 5. php artisan key:generate
 6. php artisan migrate
 
-## Test input 5000 data (Contact & Groups)
+## Test input data (Contact & Groups)
 
 1. php artisan db:seed
 
