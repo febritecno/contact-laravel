@@ -16,17 +16,17 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->string('avatar');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('address');
-            $table->string('city');
-            $table->integer('zip');
-            $table->string('country');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('note');
-            $table->integer('groups_id')->index()->unsigned();
+            $table->longText('avatar');
+            $table->longText('first_name');
+            $table->longText('last_name');
+            $table->longText('address');
+            $table->longText('city');
+            $table->longText('zip');
+            $table->longText('country');
+            $table->longText('email');
+            $table->longText('phone');
+            $table->longText('note');
+            $table->bigInteger('groups_id')->index()->unsigned();
             $table->timestamps();
         });
 
