@@ -15,7 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->engine = "InnoDB";
-            $table->bigIncrements('id',500);
+            $table->bigIncrements('id');
             $table->longText('avatar');
             $table->longText('first_name');
             $table->longText('last_name');
@@ -26,7 +26,7 @@ class CreateContactsTable extends Migration
             $table->longText('email');
             $table->longText('phone');
             $table->longText('note');
-            $table->bigInteger('groups_id')->index()->unsigned();
+            $table->longText('groups_id');
             $table->timestamps();
         });
 
