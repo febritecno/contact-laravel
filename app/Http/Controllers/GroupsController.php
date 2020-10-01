@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Groups;
 use Illuminate\Http\Request;
+use App\Http\Requests\GroupRequest;
 
 class GroupsController extends Controller
 {
@@ -36,12 +37,9 @@ class GroupsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GroupRequest $request)
     {
-        $request->validate([
-            'group_name' => 'required',
-            'detail' => 'required',
-        ]);
+        $request->validated(); // here is you magic method
 
         Groups::create($request->all());
 
@@ -78,12 +76,9 @@ class GroupsController extends Controller
      * @param  \App\Groups  $groups
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Groups $group)
+    public function update(GroupRequest $request, Groups $group)
     {
-        $request->validate([
-            'group_name' => 'required',
-            'detail' => 'required',
-        ]);
+        $request->validated(); // here is you magic method
 
         $group->update($request->all());
 
