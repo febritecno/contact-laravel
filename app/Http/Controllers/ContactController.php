@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Groups;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
@@ -40,21 +41,9 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'zip' => 'required',
-            'country' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'note' => 'required',
-            'groups_id' => 'required',
-            'avatar' => 'required',
-        ]);
+        $request->validated(); // here is you magic method
 
         $imageName = time() . '.' . $request->avatar->extension();
 
@@ -84,7 +73,7 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact,Request $request)
+    public function show(Contact $contact, Request $request)
     {
         $data= Groups::find($request->segment(2));
         return view('contact.show', compact('contact','data'));
@@ -109,21 +98,9 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactRequest $request, Contact $contact)
     {
-       $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'zip' => 'required',
-            'country' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'note' => 'required',
-            'groups_id' => 'required',
-            'avatar' => 'required',
-        ]);
+        $request->validated(); // here is you magic method
 
         $imageName = time() . '.' . $request->avatar->extension();
 
