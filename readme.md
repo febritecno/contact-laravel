@@ -9,13 +9,32 @@
 
 ## Set Up
 1. clone
-2. composer install
-3. mv .env.example .env
-4. setting database .env
-5. php artisan key:generate
-6. php artisan migrate
+   Buka terminal lalu masukan peritah
+   ~~~~
+   git clone https://github.com/febritecno/contact-laravel.git
+   ~~~~
+   
+2. Setelah proses clone selesai masukkan perintah dibawah ini
+   ~~~~
+   composer install
+   ~~~~
+    
+3. Masukan perintah dibawah ini untuk membuat file .env dari file .env.example 
+   ~~~~
+   mv .env.example .env
+   ~~~~
+   
+4. setting database pada file .env
+    ~~~~
+    DB_DATABASE=nama_database
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ~~~~
+    
+5. Masukkan perintah `php artisan key:generate` untuk membuat app_key pada file .env
+    
+6. Masukkan perintah `php artisan migrate` untuk mengeksekusi file migration.
 
 ## Test input data (Contact & Groups)
 
-1. php artisan db:seed
-
+1. Masukkan perintah `php artisan db:seed` untuk membuat default record pada tabel.
